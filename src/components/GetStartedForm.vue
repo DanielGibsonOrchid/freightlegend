@@ -7,16 +7,26 @@ export default {
 <template>
   <div id="gs-form" class="gs-form flex">
     <div class="container">
-      <div class="ready-to-try">
+      <!-- <div class="background-image">
+        <img src="../assets/homepage/call-to-action-background.png" alt="Background image of blue waves">
+      </div> -->
+      <div class="ready-to-try" id="interested">
         <h5>Ready to try FreightLegend?</h5>
         <h6>Contact us to see how easy it is for your team <br />to start trialing FreightLegend</h6>
-        <form class="get-started-form" name="get-started" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form 
+          action="/success"
+          class="get-started-form" 
+          name="get-started" 
+          method="POST" 
+          data-netlify="true" 
+          netlify-honeypot="bot-field"
+        >
           <div class="form-content flex">
             <p class="hidden">
               <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
             </p>
-            <input type="text" name="name" placeholder="Your name" class="input-main" />
-            <input type="email" name="email" placeholder="Your email" class="input-main" />
+            <input type="text" name="name" placeholder="Your name" class="input-main" required />
+            <input type="email" name="email" placeholder="Your email" class="input-main input-margin" required />
             <div class="select-div">
               <select name="country" class="input-main">
                 <option value="New Zealand">New Zealand</option>
@@ -42,7 +52,7 @@ export default {
   padding: 0 30px;
   justify-content: space-between;
   position: relative;
-  height: 400px;
+  height: 100%;
 }
 
 .container {
@@ -58,8 +68,12 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../assets/homepage/call-to-action-background.png");
+  background-image: url("../assets/homepage/call-to-action-background-v2.png");
   background-repeat: round;
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 5px 5px -1px rgba(13,160,237,0.6);
+  -moz-box-shadow: 0px 5px 5px -1px rgba(13,160,237,0.6);
+  box-shadow: 0px 5px 5px -1px rgba(13,160,237,0.6);
 }
 
 .ready-to-try {
@@ -77,7 +91,9 @@ form {
 }
 
 select {
-  width: 267px;
+  width: 268px;
+  padding-right: 17px;
+  cursor: pointer;
 }
 
 option {
@@ -85,10 +101,14 @@ option {
 }
 
 .form-content {
-  justify-content: space-between;
   max-width: 843px;
   margin: 0 auto;
   color: #000;
+  padding: 0 15px;
+}
+
+.input-margin {
+  margin: 0 18px;
 }
 
 .hidden {
@@ -105,15 +125,36 @@ option {
   position: absolute;
   top: 24px;
   left: 230px;
-  width: 100%;
-  height: 100%;
+  width: 10px;
+  height: 10px;
   background-image: url("../assets/homepage/down-arrow.png");
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .btn-main {
   margin-top: 30px;
+  margin-bottom: 20px;
   padding: 20px 70px;
+}
+
+@media (max-width: 830px) {
+  .form-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-margin {
+    margin: 15px 0 0 0;
+  }
+
+  .select-div {
+    margin: 15px auto 0;
+  }
+
+  br {
+    display: none;
+  }
 }
 
 </style>

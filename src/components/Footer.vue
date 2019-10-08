@@ -7,17 +7,17 @@ export default {
 <template>
   <div id="footer" class="footer flex">
     <div>
-      <div><img class="logo" src="../assets/freightLegend-purple-logo.png"></div>
+      <div class="img-div"><a href="/"><img class="logo" src="../assets/freightLegend-purple-logo.png"></a></div>
       <p>&#169; 2019 All Rights Reserved.</p>
     </div>
     <ul class="flex">
-      <li>Privacy</li>
+      <li><router-link to="/privacy">Privacy</router-link></li>
       <li>|</li>
-      <li>Terms of Services</li>
+      <li><router-link to="/terms">Terms of Services</router-link></li>
       <li>|</li>
-      <li>About</li>
+      <li><router-link to="/about">About</router-link></li>
       <li>|</li>
-      <li>FAQ</li>
+      <li><router-link to="/faq">FAQ</router-link></li>
     </ul>
   </div>  
 </template>
@@ -34,6 +34,11 @@ export default {
   justify-content: space-between;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 ul {
   align-items: center;
   padding-top: 35px;
@@ -45,6 +50,30 @@ ul li {
 
 ul li:last-child {
   padding-right: 0;
+}
+
+@media (max-width: 830px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 22px; 
+  }
+
+  .img-div {
+    text-align: center;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
 }
 
 

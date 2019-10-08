@@ -88,11 +88,21 @@ section {
 }
 
 .sec-5 {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .sec-6 {
   padding-top: 0;
+}
+
+@media (max-width: 830px) {
+  .sec-1, .sec-2, .sec-3, .sec-4, .sec-5 {
+    flex-direction: column;
+  }
+
+  .text-content, .sec-2 .text-content, .sec-4 .text-content {
+    padding: 0;
+  }
 }
 
 

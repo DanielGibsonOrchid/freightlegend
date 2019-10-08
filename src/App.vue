@@ -1,18 +1,20 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import GetStartedForm from './components/GetStartedForm.vue';
-import Banner from './components/Banner.vue';
-import TwoColumn from './components/TwoColumn.vue';
 
 export default {
   name: 'app',
   components: {
     Header,
     Footer,
-    GetStartedForm,
-    Banner,
-    TwoColumn,
+  },
+  watch: {
+    '$route': {
+      handler: (to) => {
+        document.title = to.meta.title || '';
+      },
+      immediate: true
+    }
   }
 }
 </script>
@@ -20,9 +22,7 @@ export default {
 <template>
   <div id="app">
     <Header />
-    <Banner />
-    <TwoColumn />
-    <GetStartedForm />
+    <router-view />
     <Footer />
   </div>
 </template>
@@ -57,13 +57,18 @@ html {
   color: var(--black);
   max-width: 1440px;
   margin: 0 auto;
-  /* text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07); */
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
 
 input, button, submit {
   border: none;
@@ -135,6 +140,10 @@ ul {
   padding-left: 0;
 }
 
+li a:hover {
+  border-bottom: 2px solid var(--purple);
+}
+
 .flex {
   display: flex;
 }
@@ -155,6 +164,11 @@ ul {
   color: var(--blue);
   border-radius: 39px;
   padding: 20px 105px;
+  -o-transition:.25s;
+  -ms-transition:.25s;
+  -moz-transition:.25s;
+  -webkit-transition:.25s;
+  transition:.25s;
 }
 
 .btn-main:hover {
@@ -173,14 +187,41 @@ ul {
   font-size: 16px;
   line-height: 20px;
   font-family: var(--sans);
-  padding: 17px 50px 17px 20px;
+  padding: 17px 20px 17px 20px;
   background: rgba(255, 255, 255, .5);
+  width: 268px;
 }
 
 /* Removes Firefox's dotted border when selecting elements */
 select:-moz-focusring { 
   color: transparent;
   text-shadow: 0 0 0 #000; 
+}
+
+@media (max-width: 830px) {
+  h1 {
+    font-size: 45px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  h3 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 </style>

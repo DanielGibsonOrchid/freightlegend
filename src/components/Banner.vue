@@ -11,7 +11,7 @@ export default {
         <div class="heading-text">
           <h1>Take the stress out of creating quotes</h1>
           <p>Quoting freight rates made easy even recent hires can confidently use.</p>
-          <button class="btn-main">get started</button>
+          <a href="#interested"><button class="btn-main">get started</button></a>
         </div>
         <div class="header-img"><img src="../assets/header-person.png" alt="" /></div>
       </div>
@@ -56,15 +56,15 @@ export default {
 .header-content {
   align-items: center;
   justify-content: space-between;
-  max-width: 1140px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
 .heading-text {
   position: relative;
   color: #fff;
-  max-width: 520px;
-  padding-left: 15px;
+  max-width: 530px;
+  padding-left: 25px;
 }
 
 .header-img {
@@ -77,11 +77,13 @@ img {
 
 .second-section {
   height: 394px;
+  padding: 0 30px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 h3 {
   margin: auto;
-  max-width: 920px;
   border-top: 2px solid var(--blue);
   position: relative;
   padding-top: 20px;
@@ -95,5 +97,47 @@ h3:after {
   width: 94%;
   height: 2px;
   top: -2px;
+}
+
+@media (max-width: 830px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .heading-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-img {
+    height: 260px;
+    width: 260px;
+    margin-right: 0;
+    margin-top: -10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 45px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  button {
+    align-self: center;
+  }
+
 }
 </style>
