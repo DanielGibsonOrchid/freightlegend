@@ -12,12 +12,12 @@ export default {
     </div>
     <ul class="flex">
       <li><router-link to="/privacy">Privacy</router-link></li>
-      <li>|</li>
-      <li><router-link to="/terms">Terms of Services</router-link></li>
-      <li>|</li>
+      <li class="line">|</li>
+      <li><router-link to="/terms">Terms & Conditions</router-link></li>
+      <!-- <li class="line">|</li>
       <li><router-link to="/about">About</router-link></li>
-      <li>|</li>
-      <li><router-link to="/faq">FAQ</router-link></li>
+      <li class="line">|</li>
+      <li><router-link to="/faq">FAQ</router-link></li> -->
     </ul>
   </div>  
 </template>
@@ -71,7 +71,11 @@ ul li:last-child {
 
   ul li {
     padding-right: 0;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+  }
+
+  .line {
+    display: none;
   }
 
 }

@@ -3,6 +3,7 @@ import About from './pages/About'
 import Faq from './pages/Faq'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import ThanksForm from './pages/ThanksForm' 
 
 const routes = [
   {
@@ -10,7 +11,15 @@ const routes = [
     name: 'home',
     component: Home,
     meta: {
-      title: 'FreightLegend - Rate & Quote Calculator App'
+      title: 'FreightLegend - Quoting freight rates made easy'
+    }
+  },
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: Privacy,
+    meta: {
+      title: 'Privacy - FreightLegend'
     }
   },
   {
@@ -27,6 +36,14 @@ const routes = [
     component: Faq,
     meta: {
       title: 'FAQ - FreightLegend'
+    }
+  },
+  {
+    path: '/success',
+    name: 'thanks',
+    component: ThanksForm,
+    meta: {
+      title: 'Thanks - FreightLegend'
     }
   }
 ]

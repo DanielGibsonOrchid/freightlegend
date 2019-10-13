@@ -10,7 +10,7 @@ export default {
       <div class="header-content flex">
         <div class="heading-text">
           <h1>Take the stress out of creating quotes</h1>
-          <p>Quoting freight rates made easy even recent hires can confidently use.</p>
+          <p>Quoting freight rates made easy.</p>
           <a href="#interested"><button class="btn-main">get started</button></a>
         </div>
         <div class="header-img"><img src="../assets/header-person.png" alt="" /></div>

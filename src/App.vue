@@ -169,6 +169,7 @@ li a:hover {
   -moz-transition:.25s;
   -webkit-transition:.25s;
   transition:.25s;
+  background: #fff;
 }
 
 .btn-main:hover {

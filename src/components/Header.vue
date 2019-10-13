@@ -4,7 +4,14 @@ export default {
   data () {
     return {
       showMobileMenu: false,
+      geoCountry: null,
     }
+  },
+  mounted () {
+    fetch("/locale.json")
+      .then(response => response.json())
+      .then(data => this.geoCountry = data.locale)
+      .catch(err => console.error("Error fetching data from /nz.json endpoint"))
   },
 }
 </script>
@@ -15,24 +22,25 @@ export default {
     
     <div class="flex-col">
       <ul class="phone flex">
-        <li><a href="tel:4158900794">415-890-0794(USA)</a></li>
-        <li><a href="tel:1300849082">1300-849-082(AUS)</a></li>
-        <li><a href="tel:0800933233">0800-933-233(NZ)</a></li>
+        <li v-if="geoCountry === 'United States'"><a href="tel:4158900794">415-890-0794</a></li>
+        <li v-if="geoCountry === 'Australia'"><a href="tel:1300849082">1300-849-082</a></li>
+        <li v-if="geoCountry === 'New Zealand'"><a href="tel:0800933233">0800-933-233</a></li>
+        <li v-if="geoCountry === 'Not specified'"><a href="tel:+6499503824">+64-9-950-3824</a></li>
       </ul>
 
       <ul class="desktop-menu flex">
-        <li><router-link to="/faq">FAQ</router-link></li>
-        <li><router-link to="/about">ABOUT</router-link></li>
+        <!-- <li><router-link to="/faq">FAQ</router-link></li> -->
+        <!-- <li><router-link to="/about">ABOUT</router-link></li> -->
         <li><router-link to="/login">LOG IN</router-link></li>
         <li><a class="btn" href="#interested">I'M INTERESTED</a></li>
       </ul>
 
-      <button @click="showMobileMenu = !showMobileMenu" class="hamburger-btn"><img src="../assets/hamburger-menu.png" alt=""></button>
+      <button @click="showMobileMenu = !showMobileMenu" class="hamburger-btn"><img src="../assets/hamburger-menu-v2.png" alt=""></button>
 
       <div class="mobileDiv">
         <ul v-if="showMobileMenu" :class="{'mobile-menu' : showMobileMenu}" class=" flex">
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/about">ABOUT</a></li>
+          <!-- <li><a href="/faq">FAQ</a></li>
+          <li><a href="/about">ABOUT</a></li> -->
           <li><a href="/login">LOG IN</a></li>
           <li><a class="btn" href="/#interested">I'M INTERESTED</a></li>
         </ul>
@@ -59,6 +67,10 @@ export default {
 .phone, .desktop-menu, .mobile-menu {
   font-size: 14px;
   letter-spacing: 0.1em;
+}
+
+.phone {
+  justify-content: flex-end;
 }
 
 .phone a {
@@ -121,13 +133,15 @@ export default {
 
 
 @media (max-width: 830px) {
-  .header {
-    flex-direction: column;
+
+  .logo {
+    padding-top: 45px;
+    padding-bottom: 10px;
   }
 
   .phone {
     flex-direction: column;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 0;
   }
 
@@ -155,13 +169,12 @@ export default {
     border-radius: 8px;
     flex-direction: column;
     z-index: 1;
-    left: 0px;
-    top: -130px;
-    width: 60%;
+    left: -205%;
+    top: 35px;
+    width: 370px;
     font-size: 22px;
     line-height: 42px;
     text-align: center;
-    width: 100%;
     -webkit-animation: fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 0.2s; /* Firefox < 16 */
         -ms-animation: fadein 0.2s; /* Internet Explorer */
@@ -193,10 +206,10 @@ export default {
 
   .hamburger-btn {
     position: absolute;
-    top: -25%;
-    left: 80%;
-    height: 50px;
-    width: 50px;
+    top: 55%;
+    left: 70%;
+    height: 35px;
+    width: 35px;
     background: #fff; 
     display: block;
   } 

@@ -1,6 +1,11 @@
 <script>
 export default {
   name: 'gs-form',
+  data () {
+    return {
+      onSubmit: false,
+    }
+  }
 }
 </script>
 
@@ -13,18 +18,20 @@ export default {
       <div class="ready-to-try" id="interested">
         <h5>Ready to try FreightLegend?</h5>
         <h6>Contact us to see how easy it is for your team <br />to start trialing FreightLegend</h6>
+        <!-- v-on:submit="onSubmit = !onSubmit"
+        netlify-honeypot="bot-field" -->
         <form 
           action="/success"
           class="get-started-form" 
           name="get-started" 
-          method="POST" 
-          data-netlify="true" 
-          netlify-honeypot="bot-field"
+          method="post" 
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="get-started" />
           <div class="form-content flex">
-            <p class="hidden">
-              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-            </p>
+           
             <input type="text" name="name" placeholder="Your name" class="input-main" required />
             <input type="email" name="email" placeholder="Your email" class="input-main input-margin" required />
             <div class="select-div">
@@ -37,7 +44,9 @@ export default {
             </div>
           </div>
           <input type="submit" class="btn-main" />
+          <!-- <button type="submit" class="btn-main">Submit Query</button> -->
         </form>
+      
       </div>
     </div>
   </div>  

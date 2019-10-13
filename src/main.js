@@ -9,9 +9,14 @@ Vue.use(VueRouter)
 
 
 const router = new VueRouter({
-  base: __dirname,
+  // base: __dirname,
   mode: 'history',
-  routes
+  history: true,
+  base: process.env.BASE_URL,
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
 new Vue({

@@ -39,12 +39,12 @@ export default {
       </div>
     </section> <!-- Section 5 end -->
     <!-- Section 6 start -->
-    <section class="sec-5 flex">
+    <!-- <section class="sec-5 flex">
       <div class="text-content">
         <h4>Compare</h4>
         <p>Quickly compaire buy and sell rates while managing how much you share with customers.</p>
       </div>
-    </section>
+    </section> -->
     <section class="sec-6">
       <h3>Want quoting to become something even recent hires can confidently use?</h3>
       <h2>Let us know and you can soon be enjoying a quoting system which allows your sales staff to focus on selling, not data entry - find out more today!</h2>
@@ -102,6 +102,10 @@ section {
 
   .text-content, .sec-2 .text-content, .sec-4 .text-content {
     padding: 0;
+  }
+
+  section {
+  padding: 15px 0;
   }
 }
 
