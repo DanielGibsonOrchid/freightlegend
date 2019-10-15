@@ -31,7 +31,7 @@ export default {
       <ul class="desktop-menu flex">
         <!-- <li><router-link to="/faq">FAQ</router-link></li> -->
         <!-- <li><router-link to="/about">ABOUT</router-link></li> -->
-        <li><router-link to="/login">LOG IN</router-link></li>
+        <li><a href="https://app.freightlegend.com">LOG IN</a></li>
         <li><a class="btn" href="#interested">I'M INTERESTED</a></li>
       </ul>
 

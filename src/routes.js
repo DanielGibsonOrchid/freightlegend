@@ -45,6 +45,14 @@ const routes = [
     meta: {
       title: 'Thanks - FreightLegend'
     }
+  },
+  {
+    path: '/terms',
+    name: 'terms',
+    component: Terms,
+    meta: {
+      title: 'Terms - FreightLegend'
+    }
   }
 ]
 
